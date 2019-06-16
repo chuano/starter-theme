@@ -1,0 +1,41 @@
+// ------------------------------------------------------------------------------------
+// Components: Forms
+// ------------------------------------------------------------------------------------
+input,
+input[type="text"],
+input[type="password"],
+input[type="date"],
+input[type="datetime"],
+input[type="time"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="week"],
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="tel"],
+input[type="time"],
+input[type="url"] {
+	&:hover,
+	&:focus {
+		box-shadow: none;
+	}
+	&::placeholder {
+	}
+}
+textarea {
+}
+input[type="submit"] {
+}
+select {
+}
+.form {
+	fieldset {
+		legend {
+		}
+	}
+}
+.form-control {
+	&:focus {
+	}
+}

@@ -1,0 +1,19 @@
+// ------------------------------------------------------------------------------------
+// Base
+// ------------------------------------------------------------------------------------
+// * Init
+html {
+	scroll-behavior: smooth;
+}
+body {
+	font-family: map-get($fonts, primary);
+}
+// * Typography
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+	font-family: map-get($fonts, secondary);
+}
+a {
+	color: map-get($colors, primary);
+	&:hover {
+	}
+}

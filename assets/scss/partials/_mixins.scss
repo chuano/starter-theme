@@ -1,0 +1,41 @@
+// Custom Mixins
+// *
+// Sprite
+// *
+@mixin sprite($sprite-position-y, $sprite-position-x) {
+  background-image: url('#{$images-url}/sprite.png');
+  background-position: $sprite-position-y+px $sprite-position-x+px;
+  background-repeat: no-repeat;
+}
+// *
+// Custom Add Content Mixin
+// *
+@mixin add-content($width, $height, $display, $position, $top, $right, $bottom, $left, $z-index) {
+  width: $width;
+  height: $height;
+  display: $display;
+  position: $position;
+  top: $top;
+  right: $right;
+  bottom: $bottom;
+  left: $left;
+  z-index: $z-index;
+  content: "";
+}
+// *
+// Reset box
+// *
+@mixin reset-box {
+  margin: 0 !important;
+  padding: 0 !important;
+  float: none !important;
+}
+// *
+// Hidden content
+// *
+@mixin hidden ($position, $top, $left, $z-index) {
+  position: $position;
+  top: $top+px;
+  left: $left+px;
+  z-index: $z-index;
+}

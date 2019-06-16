@@ -1,0 +1,23 @@
+// ------------------------------------------------------------------------------------
+// Custom Variables
+// ------------------------------------------------------------------------------------
+// * Images URL
+$images-url: '../images';
+// * Font Family
+$fonts: (
+  'primary': #{'Helvetica Neue', Helvetica, Arial, sans-serif},
+  'secondary': #{'Helvetica Neue', Helvetica, Arial, sans-serif}
+);
+// * Color palette
+$color-primary: #000;
+$color-secondary: #fff;
+$colors: (
+  'primary': $color-primary,
+  'secondary': $color-secondary
+ );
+// * Breakpoints
+// @include media-breakpoint-up(xs) { ... }
+// @include media-breakpoint-up(sm) { ... }
+// @include media-breakpoint-up(md) { ... }
+// @include media-breakpoint-up(lg) { ... }
+// @include media-breakpoint-up(xl) { ... }
