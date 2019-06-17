@@ -11,27 +11,38 @@
 if ( ! function_exists( 'register_menus' ) ) {
 	function register_menus() {
 		register_nav_menus( array(
- 			'menu-primary'	=> __( 'Menú principal', 'starter' ),
+ 			'menu-primary'	=> __( 'Main menu', 'starter' ),
+ 			'menu-secondary'	=> __( 'Secondary menu', 'starter' ),
  		) );
  	}
  	add_action( 'after_setup_theme', 'register_menus' );
 }
-// Primary
-if ( ! function_exists( 'menu_primary' ) ) {
-	function menu_primary() {
-		wp_nav_menu(array(
-		'container' => false,                           // remove nav container
-		'container_class' => '',                        // class of container
-		'theme_location' => 'menu-primary',       	// where it's located in the theme
-		'menu' => '',                                   // menu name
-		'menu_class' => '',					// adding custom nav class
-		'before' => '',                                 // before each link <a>
-		'after' => '',                                  // after each link </a>
-		'link_before' => '',                            // before each link text
-		'link_after' => '',                             // after each link text
-		'depth' => 5,                                   // limit the depth of the nav
-		'fallback_cb' => false                          // fallback function (see below)
-		// 'walker' => new top_bar_walker()
-    		));
+
+// Adding custom class to menu item <li>   
+function item_menu_classes($classes, $item, $args) {
+	// Primary menu
+	if($args->theme_location == 'menu-primary') {
+		$classes[] = 'nav-item';
 	}
+	// Secondary menu
+	if($args->theme_location == 'menu-secondary') {
+		$classes[] = 'nav-item';
+	}
+  return $classes;
+}
+add_filter('nav_menu_css_class', 'item_menu_classes', 1, 3);
+
+// Adding custom class to link <a> (all menus)
+function add_menuclass($ulclass) {
+   return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
+}
+add_filter('wp_nav_menu','add_menuclass');
+
+// Adding custom class to 'active' li (all menus)
+add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
+function special_nav_class($classes, $item){
+     if( in_array('current-menu-item', $classes) ){
+             $classes[] = 'active ';
+     }
+     return $classes;
 }

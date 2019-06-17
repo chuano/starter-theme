@@ -8,7 +8,7 @@
 **/
 ?>
 <footer id="footer">
-    <!-- Footer content here -->
+    <?php get_template_part('template-parts/menu', 'secondary'); ?>
 </footer>
 <?php wp_footer(); ?>
 </body>

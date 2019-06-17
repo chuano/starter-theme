@@ -22,6 +22,6 @@
 </head>
 <body <?php body_class(); ?>>
 	<header id="header">
-		<a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php bloginfo( 'name' ); ?></span></a>
-		<!-- Header content here -->
+		<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><span><?php bloginfo( 'name' ); ?></span></a></h1>
+		<?php get_template_part('template-parts/menu', 'primary'); ?>
 	</header>
