@@ -33,10 +33,19 @@ function item_menu_classes($classes, $item, $args) {
 add_filter('nav_menu_css_class', 'item_menu_classes', 1, 3);
 
 // Adding custom class to link <a> (all menus)
-function add_menuclass($ulclass) {
-   return preg_replace('/<a /', '<a class="nav-link"', $ulclass);
+function add_menuclass($ul_html, $args) {
+	$classes = array (
+		'menu-primary' => 'menu-primary-link',
+		'menu-secondary' => 'menu-secondary-link'
+	);
+	
+	if (key_exists($args->theme_location, $classes)) {
+		return preg_replace('/<a /', '<a class="' . $classes[$args->theme_location] . '"', $ul_html);
+	}
+
+	return $ul_html;
 }
-add_filter('wp_nav_menu','add_menuclass');
+add_filter('wp_nav_menu','add_menuclass', 10, 2);
 
 // Adding custom class to 'active' li (all menus)
 add_filter('nav_menu_css_class' , 'special_nav_class' , 10 , 2);
